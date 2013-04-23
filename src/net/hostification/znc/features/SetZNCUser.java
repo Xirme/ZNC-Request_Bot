@@ -1,5 +1,5 @@
 package net.hostification.znc.features;
 
-public class TestFeature {
+public class SetZNCUser {
 
 }
