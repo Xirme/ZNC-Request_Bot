@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import net.hostification.znc.data.MySQL;
 
+
 public class Config {
 	
  public static Properties config = new Properties();

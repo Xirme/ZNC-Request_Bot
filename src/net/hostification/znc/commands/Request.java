@@ -12,7 +12,10 @@ public class Request extends ListenerAdapter {
 	
 	public void onMessage(MessageEvent event) throws Exception {
 		
-		String arguments = event.getMessage().split(" ")[1];
+		String argument1 = event.getMessage().split(" ")[1];
+		String argument2 = event.getMessage().split(" ")[2];
+		String argument3 = event.getMessage().split(" ")[3];
+		String argument4 = event.getMessage().split(" ")[4];
 		
 		if (event.getMessage().startsWith("!request")) {
 				//if all args filled correctly, then insert the data in to MySQL database and PM ZNC administrator with notification of new ZNC user request. 
