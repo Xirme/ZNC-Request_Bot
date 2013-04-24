@@ -8,12 +8,13 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
 @SuppressWarnings("rawtypes")
-public class Request extends ListenerAdapter{
+public class Request extends ListenerAdapter {
 	
 	public void onMessage(MessageEvent event) throws Exception {
+		
+		String arguments = event.getMessage().split(" ")[1];
+		
 		if (event.getMessage().startsWith("!request")) {
-			String[] arguments = event.getMessage().split(" ");
-			if(arguments.length == 4){
 				//if all args filled correctly, then insert the data in to MySQL database and PM ZNC administrator with notification of new ZNC user request. 
 				
 				for (int i = 0; i < Config.admins.length; i++) {
@@ -25,4 +26,3 @@ public class Request extends ListenerAdapter{
 			}
 		}
 	}
-}
