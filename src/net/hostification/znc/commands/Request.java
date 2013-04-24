@@ -4,10 +4,11 @@ import net.hostification.znc.znchelper.ZNCHelper;
 import net.hostification.znc.znchelper.Config;
 
 import org.pircbotx.User;
+import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
 @SuppressWarnings("rawtypes")
-public class Request {
+public class Request extends ListenerAdapter{
 	
 	public void onMessage(MessageEvent event) throws Exception {
 		if (event.getMessage().startsWith("!request")) {

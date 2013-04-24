@@ -88,7 +88,7 @@ public class ZNCHelper {
 		
 		
 		//Load Commands
-		
+		bot.getListenerManager().addListener(new Request());
 		
 		//Load handlers
 		
