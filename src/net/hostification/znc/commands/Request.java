@@ -14,10 +14,8 @@ public class Request extends ListenerAdapter {
 		
 		String[] cSyntax;
 		
-		cSyntax = new String[4];
-		
 		cSyntax = event.getMessage().split("\\s+");
-		if (cSyntax.length == 4) {
+		if (cSyntax.length == 5) {
 			if (event.getMessage().startsWith("!request")) {
 				//if all args filled correctly, then insert the data in to MySQL database and PM ZNC administrator with notification of new ZNC user request. 
 				//Syntax is: !request <username> <email> <irc.server> <irc.port>
@@ -26,16 +24,16 @@ public class Request extends ListenerAdapter {
 				for (int i = 0; i < Config.admins.length; i++) {
 					ZNCHelper.bot.sendMessage(Config.admins[i], "Success!"); 
 					ZNCHelper.bot.sendMessage(Config.admins[i], "Data: " + cSyntax);
+					}
 				}
 			}
-			if (cSyntax.length < 4) {
+			if (cSyntax.length < 5) {
 				ZNCHelper.bot.sendMessage(event.getUser(), "Invalid syntax! ");
 				ZNCHelper.bot.sendMessage(event.getUser(), "Valid syntax is: !request <username> <email> <irc.server> <irc.port>");
 			}
-			if (cSyntax.length > 4) {
+			if (cSyntax.length > 5) {
 				ZNCHelper.bot.sendMessage(event.getUser(), "Invalid syntax! ");
 				ZNCHelper.bot.sendMessage(event.getUser(), "Valid syntax is: !request <username> <email> <irc.server> <irc.port>");
-			}
 		}
 	}
 }
