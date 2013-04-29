@@ -15,6 +15,13 @@ public class Request extends ListenerAdapter {
 		String[] cSyntax;
 		
 		cSyntax = event.getMessage().split("\\s+");
+		
+		StringBuilder builder = new StringBuilder();
+		for(String cResult : cSyntax) {
+		    builder.append(cSyntax);
+		}
+		String cResult = builder.toString();
+		
 		if (cSyntax.length == 5) {
 			if (event.getMessage().startsWith("!request")) {
 				//if all args filled correctly, then insert the data in to MySQL database and PM ZNC administrator with notification of new ZNC user request. 
