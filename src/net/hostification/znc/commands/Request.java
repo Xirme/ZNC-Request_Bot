@@ -16,17 +16,16 @@ public class Request extends ListenerAdapter {
 		
 		cSyntax = new String[4];
 		
-		
-		cSyntax[1] = event.getMessage().split(" ")[1];
-		cSyntax[2] = event.getMessage().split(" ")[2];
-		cSyntax[3] = event.getMessage().split(" ")[3];
-		cSyntax[4] = event.getMessage().split(" ")[4];
+		cSyntax = event.getMessage().split("\\s+");
 		
 		if (event.getMessage().startsWith("!request")) {
 				//if all args filled correctly, then insert the data in to MySQL database and PM ZNC administrator with notification of new ZNC user request. 
-				
+				//Syntax is: !request <username> <email> <irc.server> <irc.port>
+			
+			
 				for (int i = 0; i < Config.admins.length; i++) {
 					ZNCHelper.bot.sendMessage(Config.admins[i], "Success!"); 
+					ZNCHelper.bot.sendMessage(Config.admins[i], "Data: " + cSyntax[4]);
 				}
 			}else{
 				ZNCHelper.bot.sendMessage(event.getUser(), "Invalid syntax! ");
