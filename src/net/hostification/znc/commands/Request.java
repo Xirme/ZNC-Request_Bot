@@ -30,7 +30,7 @@ public class Request extends ListenerAdapter {
 			
 				for (int i = 0; i < Config.admins.length; i++) {
 					ZNCHelper.bot.sendMessage(Config.admins[i], "Success!"); 
-					ZNCHelper.bot.sendMessage(Config.admins[i], "Data: " + cSyntax);
+					ZNCHelper.bot.sendMessage(Config.admins[i], "Data: " + cResult);
 					}
 				}
 			}
