@@ -27,11 +27,11 @@ public class Request extends ListenerAdapter {
 					}
 				}
 			}
-			if (cSyntax.length < 5) {
+			if (event.getMessage().startsWith("!request") && cSyntax.length < 5) {
 				ZNCHelper.bot.sendMessage(event.getUser(), "Invalid syntax! ");
 				ZNCHelper.bot.sendMessage(event.getUser(), "Valid syntax is: !request <username> <email> <irc.server> <irc.port>");
 			}
-			if (cSyntax.length > 5) {
+			if (event.getMessage().startsWith("!request") && cSyntax.length > 5) {
 				ZNCHelper.bot.sendMessage(event.getUser(), "Invalid syntax! ");
 				ZNCHelper.bot.sendMessage(event.getUser(), "Valid syntax is: !request <username> <email> <irc.server> <irc.port>");
 		}
